@@ -8,6 +8,14 @@ public class BoardDto {
 	private String title;
 	private String content;
 	private Date regdate;
+	
+	private LoginDto loginDto;
+	public LoginDto getLoginDto() {
+		return loginDto;
+	}
+	public void setLoginDto(LoginDto loginDto) {
+		this.loginDto = loginDto;
+	}
 	public BoardDto() {
 		super();
 		// TODO Auto-generated constructor stub

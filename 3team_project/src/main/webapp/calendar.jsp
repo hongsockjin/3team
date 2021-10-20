@@ -12,6 +12,149 @@
 <title></title>
 <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
 <style type="text/css">
+	.wrapper{
+		margin: 0 auto; /*가운데정렬용*/
+		width: 1024px;
+		background-color: ghostwhite;
+		position: relative;
+		left: 0;
+		padding: 0;
+		width: 100%;
+		height: 35px;
+		padding-top: 7px;
+	}
+	.topMenu:hover{
+		color:gray;
+	}
+	.topMenu p{
+		font-size: 12px;
+		line-height: 20px;
+	}
+	.topMenu{
+		display: inline;
+	}
+	.topMenu li{
+		display: inline-block;
+	}
+	.topMenu a p{
+		float: right;
+		color: black;
+	}
+	.topMenu .a {
+		float: right;
+		padding-right: 20px;
+	}
+	.searhbox{	
+		margin: 0 auto; /*가운데정렬용*/
+		height: 40px;
+		width: 400px;
+		border: 1px solid #382f2f;
+		background: #ffffff;
+	}
+	.searhbox > input{
+		font-size: 16px;
+		width: 315px;
+		padding: 10px;
+		border: 0px;
+		outline: none;
+		float: left;
+	}
+	.searhbox > button{
+		width: 60px;
+		height: 100%;
+		border: 0px;
+		background: #382f2f;
+		outline: none;
+		float: right;
+		color: #ffffff;
+	}
+	.wrapper1{
+		margin: 0 auto; /*가운데정렬용*/
+		width: 1024px;
+		position: relative;
+		left: 0;
+		padding: 0;
+		width: 100%;
+		height: 55px;
+		padding-top: 30px;
+	}
+	.machineMenu{
+		list-style: none;
+		text-align: center;
+		border-top: 1px solid black;
+		border-bottom: 1px solid black;
+		padding: 10px 0;
+	}
+	.machineMenu a{
+		text-decoration: none;
+	}
+	.machineMenu .b{
+		display: inline-block;
+		position: relative;
+		text-transform: uppercase;
+		padding: 0 40px;
+		letter-spacing: 10px;
+	}
+	.boardall{
+		width: 100%;		
+	}
+	.boardhead{
+		background-color: ghostwhite;
+		height: 50px;
+	}
+	.table{
+		border-bottom: 1px solid #444444;
+    	border-left: 1px solid #444444;
+    	padding: 10px;
+    	border-collapse: collapse;
+    	border-left: none;
+    	border-top: none;
+	}
+	.textmenu{
+		padding-top: 10px;
+	}
+	button{
+		width: 60px;
+		height: 30px;
+		border: 0px;
+		background: #382f2f;
+		outline: none;
+		color: #ffffff;
+		cursor: pointer;
+	}
+	.textdel{
+		width: 60px;
+		height: 30px;
+		border: 0px;
+		background: #382f2f;
+		outline: none;
+		color: #ffffff;
+		cursor: pointer;
+	}
+	
+	.calender{
+		border: 1px solid #444444;
+	   	padding:20px;
+	   	border-collapse: collapse;
+	   	margin-bottom : 10px;	}
+	.font{
+		font-size: 18px;
+	}
+	.link{
+		text-decoration-line: none;
+	}
+	.link:link {
+	  	color : black;
+	}
+	.link:visited {
+	  	color : black;
+	}
+	.link:hover {
+	  	color : black;
+	}
+	.link:active {
+	  	color : black;
+	}
 	th{
 		width: 80px;
 	}
@@ -32,14 +175,17 @@
 		background-color: pink;
 	}
 	.ctitle{
-		background-color: pink;
+		background-color: black;
+		color: white;
+		text-align: center;
 	}
 	/*일정 개수를 출력하느 div*/
 	.count{
 		position: absolute;
 		top: -20px;
 		left: 10px;
-		background-color: yellow;
+		background-color: black;
+		color: white;
 		width: 30px;
 		height: 30px;
 		display: none;
@@ -47,6 +193,22 @@
 		line-height: 30px;
 		border-radius: 15px 15px 15px 0px;
 	}
+	#day{		
+		background: #382f2f;
+		outline: none;
+		color: #ffffff;
+	}
+	table{
+		margin: auto;
+	}
+	
+	#sin {
+	margin-top : 20px;
+	}
+	#date_caption {
+	padding : 10px;
+	}
+	
 </style>
 <script type="text/javascript">
 $(function(){
@@ -113,23 +275,46 @@ $(function(){
 	List<CalDto>list = (List<CalDto>)request.getAttribute("list");
 %>
 <body>
-	<h1>${sessionScope.ldto.name}님의 일정보기</h1>
-	<table border="1">
-		<caption>
+<header>
+	<div>
+		<div class="wrapper">
+			<ul class="topMenu">
+				<li class="a"><a href="userMain.jsp">마이페이지</a></li>
+				<li class="a"><p>|</p></li>
+				<li class="a">${sessionScope.ldto.name}&nbsp;&nbsp;님</li>
+			</ul>
+		</div>
+	</div>
+	<div class="wrapper1">
+		
+		<div class="searhbox">
+			<input type="text" placeholder="검색어 입력">
+			<button style="cursor:pointer">검색</button>
+		</div>
+	</div>
+	<div class="wrapper2">
+		<ul class="machineMenu">
+			<li class="b"><p>상담날짜를 선택하세요</p></li>
+		</ul>
+	</div>
+</header>
+	
+	<table class="calender">
+		<caption id="date_caption">
 			<a href="CalController.do?command=calendar&year=<%=year-1%>&month=<%=month%>">←</a>
 			<a href="CalController.do?command=calendar&year=<%=year%>&month=<%=month-1%>">◀</a>
 			<span><%=year%></span>년<span><%=month%></span>월
 			<a href="CalController.do?command=calendar&year=<%=year%>&month=<%=month+1%>">▶</a>
 			<a href="CalController.do?command=calendar&year=<%=year+1%>&month=<%=month%>">→</a>
 		</caption>
-		<tr>
-			<th style="color:orange;">일</th>
-			<th>월</th>
-			<th>화</th>
-			<th>수</th>
-			<th>목</th>
-			<th>금</th>
-			<th style="color: red">토</th>
+		<tr id="day">
+			<th class="font" style="color:red;">일</th>
+			<th class="font">월</th>
+			<th class="font">화</th>
+			<th class="font">수</th>
+			<th class="font">목</th>
+			<th class="font">금</th>
+			<th class="font" style="color: blue">토</th>
 		</tr>
 		<tr>
 			<%
@@ -182,6 +367,9 @@ $(function(){
 			%>
 		</tr>
 	</table>
+	<div id="sin" align="center">
+		<a href="BoardController.do?command=main"><button type="button">메인</button></a>
+	</div>
 	<%!  //자바 메서드 선언부
 		public String getCalView(List<CalDto> list,int i){ 
 			String d = Util.isTwo(i+""); 
@@ -191,7 +379,7 @@ $(function(){
 				
 				if(dto.getMdate().substring(6,8).equals(d)){
 					titleList += "<p class='ctitle'>"
-								+(dto.getTitle())
+								+(dto.getId())+"님 예약"
 								+"</p>";
 							
 				}else{
@@ -204,9 +392,3 @@ $(function(){
 	%>
 </body>
 </html>
-
-
-
-
-
-

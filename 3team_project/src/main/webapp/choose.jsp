@@ -141,6 +141,55 @@
   		height: 80px;
   		font-size: 15px;
 	}
+	
+	.machine{
+		border: 1px;
+		height: 430px;
+		margin: 5px;
+	}
+	
+	.machine > .m1 , .m2{
+		border: 1px solid black;
+		padding: 5px;
+	}
+	
+	.mb{
+		
+		height: 50px;
+	}
+	
+	.mb1{
+		
+		float: left;
+		width: 48.5%;
+		height: 95%;
+	}
+	
+	.mb2{
+		
+		float: right;
+		width: 48.5%;
+		height: 95%;
+	}
+	
+	.m1{
+		float: left;	
+		height: 350px;
+		width: 48%;
+	}
+	
+	.m2{
+		float: right;
+		height: 350px;
+		width: 48%;
+	}
+	
+	.compare{
+		border: 1px solid black;
+		width: 100%;
+		height: 150px;
+	}
+	
 </style>
 <script type="text/javascript">
 	$(document).ready(function(){
@@ -182,6 +231,8 @@
 	<div>
 		<div class="wrapper">
 			<ul class="topMenu">
+				<li class="a"><a href="#">게시판</a></li>
+				<li class="a"><p>|</p></li>
 				<li class="a"><a href="index.jsp">방문예약</a></li>
 				<li class="a"><p>|</p></li>
 				<li class="a"><a href="regist.jsp">회원가입</a></li>
@@ -199,37 +250,43 @@
 	</div>
 	<div class="wrapper2">
 		<ul class="machineMenu">
-			<li class="b"><a href="#" >청소기</a></li>
-			<li class="b"><a href="#">세탁기</a></li>
-			<li class="b"><a href="#">냉장고</a></li>
-			<li class="b"><a href="#">티비</a></li>
+			<li class="b"><a href="vselect.jsp" >청소기</a></li>
+			<li class="b"><a href="wselect.jsp">세탁기</a></li>
+			<li class="b"><a href="rselect.jsp">냉장고</a></li>
+			<li class="b"><a href="tselect.jsp">티비</a></li>
 		</ul>
 	</div>
 </header>
 <body>
 	<div class="text">
-		<p>비교를 원하는 브랜드를 선택하세요</p>
+		<p>비교를 원하는 상품을 선택하세요</p>
 	</div>
-	<div class="slectWrapper">
-		<select onchange="brandLeft(this.value);" class="brandLeft" style="width:70px; size: 17px; font-size:17px;">
-			<option value="1">삼성</option>
-			<option value="2">LG</option>
-		</select>
-		<div id="jump">
+	<div class="machine">
+		<header>
+		<div class="mb">
+			<div class="mb1">
+				<button>버튼 1</button>&nbsp;&nbsp;&nbsp;
+				<button>버튼 2</button>&nbsp;&nbsp;&nbsp;
+				<button>버튼 3</button>&nbsp;&nbsp;&nbsp;
+				<button>버튼 4</button>
+			</div>
+			<div class="mb2">
+				<button>버튼 1</button>&nbsp;&nbsp;&nbsp;
+				<button>버튼 2</button>&nbsp;&nbsp;&nbsp;
+				<button>버튼 3</button>&nbsp;&nbsp;&nbsp;
+				<button>버튼 4</button>
+			</div>
+		</div>
+		</header>
+		<div class="m1">
 		
 		</div>
-		<select onchange="brandRight(this.value);" class="brandRight" style="width:70px; size: 17px; font-size:17px;">
-			<option value="1">삼성</option>
-			  <option value="2">LG</option>
-		</select>
-	</div>
-	<div class="wrapper3" style="overflow: auto">
-		<div id="machinepic1" style="border: 1px solid gold; width: 30%; ">
-			
+		
+		<div class="m2">
+		
 		</div>
-		<div id="machinepic2" style="border: 1px solid red; width: 30%;">
-			
-		</div>	
+	</div>
+	<div class="compare">
 		
 	</div>
 	

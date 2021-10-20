@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.hk.look">
+
+	<select id="WmList" parameterType="String" resultType="lookDto">
+		SELECT WNAME, SEQ, WPRICE, WAMOUNT, WTYPE, WOPTION FROM WM_BOARD
+	</select>
+		
+	<select id="RmList" parameterType="String" resultType="lookDto">
+		SELECT RNAME, SEQ, MINPRICE, MAXPRICE, RAMOUNT, RENERGY, RYEARPRICE  FROM RM_BOARD
+	</select>
+	
+	<select id="TmList" parameterType="String" resultType="lookDto">
+		SELECT TNAME, SEQ, TPRICE, TSIZE, TSOUND, TQUALITY, TDISPLAY  FROM TV_BOARD
+	</select>
+	
+	<select id="VmList" parameterType="String" resultType="lookDto">
+		SELECT SEQ, VNAME, VPRICE, VSUCTION, VKG, VTIME, VDEGREE FROM VC_BOARD
+	</select>
+
+	<select id="getVmOne" parameterType="String" resultType="lookDto">
+		SELECT SEQ,VNAME, VPRICE, VSUCTION, VKG, VTIME,
+		 VDEGREE FROM VC_BOARD WHERE VNAME= #{vname}
+	</select>
+	
+	<select id="">
+		
+	</select>
+	
+	
+</mapper>

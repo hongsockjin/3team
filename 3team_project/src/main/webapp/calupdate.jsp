@@ -9,17 +9,95 @@
 <meta charset="UTF-8">
 <title></title>
 </head>
+
+<style type="text/css">
+	.space{
+		height: 10px;
+	}
+	.calupdate{
+		width: 100%;	
+		min-width: 100px;
+		max-width: 1000px;
+    	border-collapse: collapse;		
+	}
+	.machineMenu{
+		list-style: none;
+		text-align: center;
+		border-top: 1px solid black;
+		border-bottom: 1px solid black;
+		padding: 10px 0;
+	}
+	.machineMenu .b{
+		display: inline-block;
+		position: relative;
+		text-transform: uppercase;
+		padding: 0 40px;
+		letter-spacing: 10px;
+	}	
+	.calender{		
+		list-style: none;
+		text-align: center;
+		border: 1px solid black;
+		padding: 10px 0;
+	}
+	.calender .b{
+		display: inline-block;
+		position: relative;
+		text-transform: uppercase;
+		padding: 0 40px;
+		letter-spacing: 10px;
+	}
+	.table{
+		height: 30px;
+		border: 1px solid #444444;
+    	padding: 10px;
+    	border-collapse: collapse;
+	}	
+	th{		
+		background: ghostwhite;
+		border-right: 1px solid #444444;
+		outline: none;
+		color: #382f2f;
+	}
+	.textbox{
+		margin: 0 auto; /*가운데정렬용*/
+		height: 20px;
+		width: 200px;
+		border: 1px solid #382f2f;
+		background: #ffffff;
+	}	
+	textarea{
+		resize:none;
+	}
+	#button{
+		width: 70px;
+		height: 30px;
+		border: 0px;
+		background: #382f2f;
+		outline: none;
+		color: #ffffff;
+		cursor: pointer;
+	}
+</style>
+
 <body>
-	<h1>일정 수정하기</h1>
+<header>
+	<div class="wrapper2">
+		<ul class="machineMenu">
+			<li class="b"><p>예약변경</p></li>
+		</ul>
+	</div>
+</header>
+
 <form action="CalController.do" method="post">
    <input type="hidden" name="command" value="calupdate">
     <input type="hidden" name="seq" value="${dto.seq}">
-   <table border="1">
-      <tr>
+   <table class="calupdate">
+      <tr class="table">
         <th>이름</th>
 			<td>${dto.loginDto.name}</td>
       </tr>
-      <tr>
+      <tr class="table">
          <th>일정</th>  
          <td>
 
@@ -55,18 +133,18 @@
 				</select>분
          </td>
       </tr>
-      <tr>
+      <tr class="table">
          <th>제목</th>
-         <td><input type="text" name="title" required="required" value="${dto.title}"></td>
+         <td id="textbox"><input type="text" name="title" required="required" value="${dto.title}"></td>
       </tr>
-      <tr>
+      <trclass="table">
          <th>내용</th>
-         <td><textarea rows="10" cols="60" required="required" name="content">${dto.content}</textarea></td>
+         <td><textarea rows="10" cols="60" required="required" name="content" style="width:98%; height:300px;">${dto.content}</textarea></td>
       </tr>
-      <tr>
+      <tr class="table">
          <td colspan="2">
-            <input type="submit" value="수정완료">
-            <input type="button" value="back" onclick="location.href='CalController.do?command=caldetail&seq=${dto.seq}&year=${param.year}&month=${param.month}&date=${param.date}'" />
+            <input id="button" type="submit" value="수정완료">
+            <input id="button" type="button" value="back" onclick="location.href='CalController.do?command=caldetail&seq=${dto.seq}&year=${param.year}&month=${param.month}&date=${param.date}'" />
          </td>
       </tr>
    </table>

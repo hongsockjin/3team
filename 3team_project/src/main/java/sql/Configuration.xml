@@ -10,6 +10,7 @@
 		<typeAlias type="com.hk.dtos.LoginDto" alias="loginDto"/>
 		<typeAlias type="com.hk.dtos.BoardDto" alias="boardDto"/>
 		<typeAlias type="com.hk.dtos.CalDto" alias="calDto"/>
+		<typeAlias type="com.hk.dtos.LookDto" alias="lookDto"/>
 		
 	</typeAliases>
 	
@@ -31,6 +32,7 @@
 		<mapper resource="sql/LoginMapper.xml"/>
 		<mapper resource="sql/BoardMapper.xml"/>
 		<mapper resource="sql/CalMapper.xml"/>
+		<mapper resource="sql/LookMapper.xml"/>
 		
 	</mappers>
 </configuration>

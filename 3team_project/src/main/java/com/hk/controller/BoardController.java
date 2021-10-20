@@ -81,7 +81,7 @@ public class BoardController extends HttpServlet {
 	    	BoardDto dto = dao.getBoard(Integer.parseInt(seq));
 	    	
 	    	request.setAttribute("dto", dto);
-	    	RequestDispatcher dispatch=request.getRequestDispatcher("updatboard.jsp");
+	    	RequestDispatcher dispatch=request.getRequestDispatcher("updateboard.jsp");
 	        dispatch.forward(request, response);
 	    }else if(command.equals("updateboard")) {
 	    	String seq=request.getParameter("seq");
